@@ -15,6 +15,7 @@ install_tex:
 install_config: 
 	@cp vimrc ~/.vimrc
 	@cp netrc ~/.netrc
+	@chmod a-wx ~/.netrc
 	@cp screenrc ~/.screenrc
 	@cp bashrc ~/.bashrc
 	@mkdir ~/.config/i3
