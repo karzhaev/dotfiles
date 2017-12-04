@@ -1,0 +1,13 @@
+escape ``
+termcapinfo xterm* ti@:te@
+scrollback 10000
+startup_message off
+#К сожалению блокирует скролинг окна(
+#caption always
+caption string "%{kw}%-w%{wr}%n %t%+w"
+#screen -t 'fsoft' 5 cd ~/fsoft
+#screen -dt 'ftpd'  9 sudo ./fsoft/ftpd.py
+#screen
+
+
+#bind v screen -t 'vim' 5 vim

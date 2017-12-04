@@ -21,7 +21,7 @@ install_config:
 	@cp bashrc ~/.bashrc
 	@mkdir -p ~/.config/i3
 	@cp i3config ~/.config/i3/config
-	@sudo cp hosts /etc/hosts
+#	@sudo cp hosts /etc/hosts
 
 gen_key:
 	@ssh-keygen

@@ -1,3 +1,32 @@
 machine ap
 	login root
 	password root
+
+machine 192.168.1.19
+	login root
+	password root
+
+machine 192.168.1.20
+	login root
+	password root
+
+machine 192.168.1.21
+	login root
+	password root
+
+machine 192.168.1.22
+	login root
+	password root
+
+
+machine 192.168.1.24
+	login root
+	password root
+
+machine 192.168.1.15
+	login root
+	password root
+
+machine 192.168.1.25
+	login root
+	password root
