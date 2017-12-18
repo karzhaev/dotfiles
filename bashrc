@@ -93,6 +93,8 @@ alias l='ls -CF'
 alias scr='screen -R'
 alias scrl='screen -ls'
 
+alias skm='localectl set-x11-keymap us,ru pc105 "-" grp:ctrl_shift_toggle,grp_led:scroll'
+
 #alias for ftml
 alias ftmlall='for FILE in *.ftml; do ftml $FILE > "${FILE%.ftml}.txt"; done'
 

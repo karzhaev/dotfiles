@@ -1,32 +1,27 @@
-machine ap
+machine ap19
 	login root
 	password root
 
-machine 192.168.1.19
+machine ap20
 	login root
 	password root
 
-machine 192.168.1.20
+machine ap21
 	login root
 	password root
 
-machine 192.168.1.21
+machine ap22
 	login root
 	password root
 
-machine 192.168.1.22
+machine ap23
 	login root
 	password root
 
-
-machine 192.168.1.24
+machine ap24
 	login root
 	password root
 
-machine 192.168.1.15
-	login root
-	password root
-
-machine 192.168.1.25
+machine ap25
 	login root
 	password root
