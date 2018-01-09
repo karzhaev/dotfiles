@@ -13,7 +13,7 @@ install_soft:
 install_tex: 
 	@sudo apt-get install $(SOFTWARE_TEX)
 
-install_config: 
+install_config: nautilius 
 	@cp vimrc ~/.vimrc
 #	@sudo cp netrc ~/.netrc
 #	@chmod a-wx ~/.netrc
@@ -26,6 +26,9 @@ install_config:
 gen_key:
 	@ssh-keygen
 	
+nautilius:
+	@gsettings set org.gnome.desktop.background show-desktop-icons false
+
 all: install_soft install_config
 
 sync:
