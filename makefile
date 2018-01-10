@@ -24,7 +24,7 @@ install_config: nautilius
 #	@sudo cp hosts /etc/hosts
 
 gen_key:
-	@ssh-keygen
+	@ssh-keygen -t rsa -C "karzhaev@uav-siberia.com" -b 4096
 	
 nautilius:
 	@gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -38,3 +38,7 @@ sync:
 	@cp ~/.bashrc bashrc
 	@cp ~/.config/i3/config i3config
 	@cp /etc/hosts hosts
+
+git:
+	@git config --global user.email "karzhaev@uav-siberia.com"
+	@git config --global user.name "karzhaev"
