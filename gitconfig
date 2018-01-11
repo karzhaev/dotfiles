@@ -3,4 +3,4 @@
 	name = karzhaev
 [alias]
 	supd = submodule update --init --recursive
-	supd = submodule update --init --recursive --force
+	supdf = submodule update --init --recursive --force
