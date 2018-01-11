@@ -1,0 +1,6 @@
+[user]
+	email = karzhaev@uav-siberia.com
+	name = karzhaev
+[alias]
+	supd = submodule update --init --recursive
+	supd = submodule update --init --recursive --force

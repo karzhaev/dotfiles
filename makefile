@@ -37,8 +37,8 @@ sync:
 	@cp ~/.screenrc screenrc
 	@cp ~/.bashrc bashrc
 	@cp ~/.config/i3/config i3config
+	@cp ~/.gitconfig gitconfig
 	@cp /etc/hosts hosts
 
 git:
-	@git config --global user.email "karzhaev@uav-siberia.com"
-	@git config --global user.name "karzhaev"
+	@cp gitconfig ~/.gitconfig
