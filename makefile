@@ -15,8 +15,9 @@ install_tex:
 
 install_config: nautilius 
 	@cp vimrc ~/.vimrc
-#	@sudo cp netrc ~/.netrc
-#	@chmod a-wx ~/.netrc
+	@chmod -f 700 ~/.netrc
+	@cp netrc ~/.netrc
+	@chmod 400 ~/.netrc
 	@cp screenrc ~/.screenrc
 	@cp bashrc ~/.bashrc
 	@mkdir -p ~/.config/i3
