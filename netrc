@@ -1,3 +1,7 @@
+machine ap18
+	login root
+	password root
+
 machine ap19
 	login root
 	password root
