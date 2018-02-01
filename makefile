@@ -22,6 +22,8 @@ install_config: nautilius
 	@cp bashrc ~/.bashrc
 	@mkdir -p ~/.config/i3
 	@cp i3config ~/.config/i3/config
+	@sudo cp i3exit /usr/local/bin/i3exit
+	@cp gitconfig ~/.gitconfig
 #	@sudo cp hosts /etc/hosts
 
 gen_key:
@@ -38,6 +40,7 @@ sync:
 	@cp ~/.screenrc screenrc
 	@cp ~/.bashrc bashrc
 	@cp ~/.config/i3/config i3config
+	@cp /usr/local/bin/i3exit i3exit
 	@cp ~/.gitconfig gitconfig
 	@cp /etc/hosts hosts
 
