@@ -4,7 +4,11 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
-"setlocal spell spelllang=ru_yo,en_us
+
+"переключение по F2
+imap <F2> 
+
+"setlocal spell spelllang=ru_ru,en_us
 
 "конец файла в unix формате
 set ff=unix
