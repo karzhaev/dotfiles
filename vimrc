@@ -7,6 +7,7 @@ highlight lCursor guifg=NONE guibg=Cyan
 
 "переключение по F2
 imap <F2> 
+nnoremap Q @@
 
 "setlocal spell spelllang=ru_ru,en_us
 
