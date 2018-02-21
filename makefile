@@ -1,6 +1,6 @@
 #/bin/sh
 
-SOFTWARE_MAIN= screen vim i3 perl chromium-browser graphviz
+SOFTWARE_MAIN= screen vim vim-gtk i3 perl chromium-browser graphviz
 SOFTWARE_TEX= inkscape texlive texlive-lang-cyrillic texlive-base texlive-binaries
 FILE_CONFIG=vimrc netrc hosts screenrc bashrc i3config
 FILE_CONFIG=~/.vimrc ~/.netrc /etc/hosts ~/.screenrc ~/.bashrc ~/.config/i3/config 
