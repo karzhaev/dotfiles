@@ -1,6 +1,6 @@
 #/bin/sh
 
-SOFTWARE_MAIN= screen vim vim-gtk i3 perl chromium-browser graphviz
+SOFTWARE_MAIN= screen vim vim-gtk i3 perl chromium-browser graphviz expect
 SOFTWARE_TEX= inkscape texlive texlive-lang-cyrillic texlive-base texlive-binaries
 FILE_CONFIG=vimrc netrc hosts screenrc bashrc i3config
 FILE_CONFIG=~/.vimrc ~/.netrc /etc/hosts ~/.screenrc ~/.bashrc ~/.config/i3/config 
@@ -13,7 +13,7 @@ install_soft:
 install_tex: 
 	@sudo apt-get install $(SOFTWARE_TEX)
 
-install_config: nautilius 
+install_config: nautilius etelnet
 	@cp vimrc ~/.vimrc
 	@chmod -f 700 ~/.netrc
 	@cp netrc ~/.netrc
@@ -24,6 +24,10 @@ install_config: nautilius
 	@cp i3config ~/.config/i3/config
 	@cp gitconfig ~/.gitconfig
 #	@sudo cp hosts /etc/hosts
+
+etelnet:
+	@sudo cp scripts/etelnet /usr/bin/etelnet
+	@sudo chmod a+x /usr/bin/etelnet
 
 gen_key:
 	@ssh-keygen -t rsa -C "karzhaev@uav-siberia.com" -b 4096
