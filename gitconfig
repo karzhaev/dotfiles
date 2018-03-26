@@ -6,3 +6,5 @@
 	supdf = submodule update --init --recursive --force
 [core]
 	editor = vim
+[push]
+	default = simple

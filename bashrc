@@ -98,7 +98,8 @@ alias skm='localectl set-x11-keymap us,ru pc105 "-" grp:ctrl_shift_toggle,grp_le
 #alias for ftml
 alias ftmlall='for FILE in *.ftml; do ftml $FILE > "${FILE%.ftml}.txt"; done'
 
-alias lockscreen="i3lock -c 000000"
+alias lock="i3lock -c 000000"
+alias :q="exit"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
