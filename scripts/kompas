@@ -1,4 +1,4 @@
 #!/bin/bash
 export WINEPREFIX=$HOME/win32
 export WINEARCH=win32
-wine start win32/drive_c/Program\ Files/ASCON/KOMPAS-3D\ V16/Bin/KOMPAS.Exe
+wine $HOME/win32/drive_c/Program\ Files/ASCON/KOMPAS-3D\ V16/Bin/KOMPAS.Exe
