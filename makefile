@@ -48,3 +48,6 @@ sync:
 
 git:
 	@cp gitconfig ~/.gitconfig
+
+video_driver_home:
+	@sudo apt-get install nvidia-384 nvidia-settings
