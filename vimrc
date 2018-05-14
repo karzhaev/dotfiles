@@ -89,7 +89,8 @@ set cursorline
 " Дополнительная информация в строке состояния
 "set wildmenu
 " Настройка отображения специальных символов
-"set list listchars=tab:→\ ,trail:·
+set list
+set listchars=tab:→\ ,space:·
 " Включение сторонних плагинов
 "filetype plugin off
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
