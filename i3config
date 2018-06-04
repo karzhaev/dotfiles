@@ -20,7 +20,7 @@ exec setxkbmap -layout us,ru -variant -option "grp:lctrl_toggle,caps:ctrl_modifi
 font pango:monospace 8
 
 #расположение дисплеев работа
-#xrandr --output DVI-I-1 --right-of HDMI-1
+exec xrandr --output DVI-I-1 --right-of HDMI-1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
