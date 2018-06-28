@@ -13,7 +13,7 @@ install_soft:
 install_tex: 
 	@sudo apt-get install $(SOFTWARE_TEX)
 
-install_config: nautilius etelnet
+install_config: nautilius
 	@cp vimrc ~/.vimrc
 	@chmod -f 700 ~/.netrc
 	@cp netrc ~/.netrc

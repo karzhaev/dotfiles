@@ -203,3 +203,18 @@ bindsym $mod+Pause mode "$mode_system"
 #Включение выключения тачпада (не везде есть на кнопках к сожалению)
 bindsym $mod+p exec synclient TouchpadOff=0
 bindsym $mod+Shift+p exec synclient TouchpadOff=1
+
+#хром запускается на 5 экране
+for_window [class="Chromium"] move container to workspace 5
+#телеграм запускается на 6 экране
+for_window [class="Telegram"] move container to workspace 6
+#thunderbird запускается на 7 экране
+for_window [class="Thunderbird"] move container to workspace 7
+
+workspace 5 output DVI-I-1
+workspace 6 output DVI-I-1
+workspace 7 output DVI-I-1
+
+exec --no-startup-id chromium-browser
+exec --no-startup-id telegram
+exec --no-startup-id thunderbird
