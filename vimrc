@@ -17,8 +17,6 @@ set ff=unix
 "Показывать номера строк
 set number
 
-"Не Показывать пробелы и табы
-set nolist
 
 " Включить подсветку синтаксиса
 syntax on
@@ -88,9 +86,14 @@ set cursorline
 "set history=200
 " Дополнительная информация в строке состояния
 "set wildmenu
+"Не Показывать пробелы и табы
+"set nolist
 " Настройка отображения специальных символов
 set list
 set listchars=tab:→\ ,space:·
 " Включение сторонних плагинов
 "filetype plugin off
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+
+"Backspace
+set backspace=indent,eol,start
