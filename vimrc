@@ -35,10 +35,6 @@ set nocompatible
 set ruler
 " Показывать незавершённые команды в статусбаре
 "set showcmd
-" Фолдинг по отсупам
-set foldenable
-set foldlevel=100
-set foldmethod=marker
 " Выключаем звуковое оповещение о достижении конца буффера, невозможности действия и т.д.
 "set noerrorbells visualbell t_vb=
 "autocmd GUIEnter * set visualbell t_vb=
@@ -92,8 +88,16 @@ set cursorline
 set list
 set listchars=tab:→\ ,space:·
 " Включение сторонних плагинов
-"filetype plugin off
+"filetype plugin on
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
 "Backspace
 set backspace=indent,eol,start
+
+augroup XML
+	autocmd!
+	autocmd FileType xml let g:xml_syntax_folding=1
+	autocmd FileType xml setlocal foldmethod=syntax
+	autocmd FileType xml :syntax on
+	autocmd FileType xml :%foldopen!
+augroup END
