@@ -102,10 +102,6 @@ alias ftmlall='for FILE in *.ftml; do ftml $FILE > "${FILE%.ftml}.txt"; done'
 alias lock="i3lock -c 000000"
 alias :q="exit"
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -126,3 +122,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export COLORLOG_CONFIG_ROOT=/home/karzhaev/develop/colorlog/config
