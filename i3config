@@ -215,6 +215,6 @@ workspace 5 output DVI-I-1
 workspace 6 output DVI-I-1
 workspace 7 output DVI-I-1
 
-exec --no-startup-id chromium-browser
-exec --no-startup-id telegram
+exec --no-startup-id chromium
+exec --no-startup-id telegram-desktop
 exec --no-startup-id thunderbird
