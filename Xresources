@@ -1,0 +1,18 @@
+! Xcursor
+Xcursor.theme:Vanila-DMZ-AA
+Xcursor.size:22
+
+! xterm
+xterm.termName:xterm-256color
+
+!xterm*metaSendsEscape:true
+!xterm*locale:true
+xterm*foreground:white
+xterm*background:black
+!xterm*faceName:Terminus:style=Regular:size=10
+xterm*faceName:Hack:size=12:style=Regular
+!xterm*font:-*--dina-medium-r-*-*-10-*-*-*-*-*-*-*
+!xterm*dynamicColors:true
+xterm*utf8:2
+!xterm*scrollBar:true
+xterm*metaSendsEscape: true

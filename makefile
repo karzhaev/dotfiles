@@ -4,7 +4,8 @@ SOFTWARE_MAIN= screen vim vim-gtk i3 perl chromium-browser graphviz expect
 SOFTWARE_TEX= inkscape texlive texlive-lang-cyrillic texlive-base texlive-binaries
 FILE_CONFIG=vimrc netrc hosts screenrc bashrc i3config
 FILE_CONFIG=~/.vimrc ~/.netrc /etc/hosts ~/.screenrc ~/.bashrc ~/.config/i3/config 
-		
+
+
 #install_soft: 
 #	@sudo apt-get update
 #	@sudo apt-get install $(SOFTWARE_MAIN)
@@ -13,6 +14,12 @@ FILE_CONFIG=~/.vimrc ~/.netrc /etc/hosts ~/.screenrc ~/.bashrc ~/.config/i3/conf
 #install_tex: 
 #	@sudo apt-get install $(SOFTWARE_TEX)
 #
+link_config:
+	@ln -sr vimrc $(HOME)/.vimrc
+	@ln -sr screenrc $(HOME)/.screenrc
+	@ln -sr gitconfig $(HOME)/.gitconfig
+	@ln -sr Xresources $(HOME)/.Xresources
+
 install_config: #nautilius
 	@cp vimrc ~/.vimrc
 #	@chmod -f 700 ~/.netrc
@@ -42,7 +49,7 @@ sync:
 #	@cp ~/.netrc netrc
 	@cp ~/.screenrc screenrc
 	@cp ~/.bashrc bashrc
-	@cp ~/.config/i3/config i3config
+#	@cp ~/.config/i3/config i3config
 	@cp ~/.gitconfig gitconfig
 
 #git:
