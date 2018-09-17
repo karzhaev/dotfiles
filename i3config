@@ -15,7 +15,7 @@ exec xset b off
 #старая версия раскладка на капсе. индикация рус на скроле
 #exec setxkbmap -layout us,ru -variant -option "grp:caps_toggle,grp_led:scroll"
 #немного чернушной магии, раскладка на левом контроле, контрол на капсе
-#exec setxkbmap -layout "us,ru" -option -option "grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin"
+exec setxkbmap -layout "us,ru" -option -option "grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -218,5 +218,6 @@ workspace 6 output HDMI-1
 workspace 7 output HDMI-1
 
 exec --no-startup-id chromium
+exec --no-startup-id chromium-browser
 exec --no-startup-id telegram-desktop
 exec --no-startup-id thunderbird

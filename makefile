@@ -6,19 +6,18 @@ FILE_CONFIG=vimrc netrc hosts screenrc bashrc i3config
 FILE_CONFIG=~/.vimrc ~/.netrc /etc/hosts ~/.screenrc ~/.bashrc ~/.config/i3/config 
 
 
-#install_soft: 
-#	@sudo apt-get update
-#	@sudo apt-get install $(SOFTWARE_MAIN)
-#	@perl -MCPAN -e 'install Crypt::PasswdMD5'
+install_soft: 
+	@sudo apt-get update
+	@sudo apt-get install $(SOFTWARE_MAIN)
 #
-#install_tex: 
-#	@sudo apt-get install $(SOFTWARE_TEX)
-#
+install_tex: 
+	@sudo apt-get install $(SOFTWARE_TEX)
+
 link_config:
 	@ln -sr vimrc $(HOME)/.vimrc
 	@ln -sr screenrc $(HOME)/.screenrc
 	@ln -sr gitconfig $(HOME)/.gitconfig
-	@ln -sr Xresources $(HOME)/.Xresources
+#	@ln -sr Xresources $(HOME)/.Xresources
 
 install_config: #nautilius
 	@cp vimrc ~/.vimrc
