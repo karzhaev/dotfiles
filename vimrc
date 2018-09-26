@@ -56,13 +56,16 @@ set hidden
 " Включить автоотступы
 set autoindent
 " Не переносить строки
-set nowrap
+"set nowrap
 " Преобразование Таба в пробелы
 "set expandtab
 " Размер табуляции по умолчанию
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+set wrap
+set textwidth=80
 
 "Формат строки состояния. Альтернативные варианты настройки `:h statusline`
 "set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
