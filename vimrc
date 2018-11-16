@@ -65,7 +65,7 @@ set softtabstop=4
 set tabstop=4
 
 set wrap
-set textwidth=80
+"set textwidth=80
 
 "Формат строки состояния. Альтернативные варианты настройки `:h statusline`
 "set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
