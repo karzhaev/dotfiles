@@ -5,7 +5,6 @@ Xcursor.size:22
 ! xterm
 xterm.termName:xterm-256color
 
-!xterm*metaSendsEscape:true
 !xterm*locale:true
 xterm*foreground:white
 xterm*background:black
@@ -16,3 +15,6 @@ xterm*faceName:Hack:size=12:style=Regular
 xterm*utf8:2
 !xterm*scrollBar:true
 xterm*metaSendsEscape: true
+
+xterm*translations: #override Ctrl Shift <KeyPress>C: copy-selection(CLIPBOARD)
+xterm*translations: #override Ctrl Shift <KeyPress>V: insert-selection(CLIPBOARD)

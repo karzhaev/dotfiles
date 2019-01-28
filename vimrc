@@ -9,6 +9,8 @@ highlight lCursor guifg=NONE guibg=Cyan
 imap <F2> 
 nnoremap Q @@
 
+noremap <silent> <F9> :w <cr> :make all <cr>
+
 "setlocal spell spelllang=ru_ru,en_us
 
 "конец файла в unix формате
