@@ -9,7 +9,6 @@ highlight lCursor guifg=NONE guibg=Cyan
 imap <F2> 
 nnoremap Q @@
 
-noremap <silent> <F9> :w <cr> :make all <cr>
 
 "setlocal spell spelllang=ru_ru,en_us
 
@@ -86,14 +85,14 @@ set cursorline
 " Увеличение размера истории
 "set history=200
 " Дополнительная информация в строке состояния
-"set wildmenu
+set wildmenu
 "Не Показывать пробелы и табы
 "set nolist
 " Настройка отображения специальных символов
 set list
 set listchars=tab:→\ ,space:·
 " Включение сторонних плагинов
-"filetype plugin on
+filetype plugin on
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
 "Backspace
@@ -106,3 +105,13 @@ augroup XML
 	autocmd FileType xml :syntax on
 	autocmd FileType xml :%foldopen!
 augroup END
+
+augroup fcont-reg
+	autocmd!
+	autocmd BufRead */fcont-reg/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-reg/arm/o-le
+augroup END
+
+"сборка по <F9>
+noremap <silent> <F9> :w<cr> :make! all<cr>
+"пересборка по <Shift>+<F9>
+noremap <silent> <S-F9> :w<cr> :make! clean all<cr>

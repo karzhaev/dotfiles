@@ -1,6 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+export DESKTOP_SESSION=LXDE
 
 # If not running interactively, don't do anything
 case $- in
@@ -94,6 +95,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias bc='bc -ql'
+alias wget='wget -N'
+alias dot_all='dot -Tpng -O *.dot'
 
 #alias for screen
 alias scr='screen -R'
@@ -103,8 +106,6 @@ alias skm='localectl set-x11-keymap us,ru pc105 "-" grp:ctrl_shift_toggle,grp_le
 
 #alias for ftml
 alias ftmlall='for FILE in *.ftml; do ftml $FILE > "${FILE%.ftml}.txt"; done'
-
-#alias stfpd='sudo screen -dmS ftpd ./home/karzhaev/develop/fsoft/ftpd.py'
 
 alias lock="i3lock -c 000000"
 alias :q="exit"
