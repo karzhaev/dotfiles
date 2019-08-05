@@ -1,1 +1,4 @@
 sudo localectl --no-convert set-x11-keymap us,ru pc105 qwera grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin
+
+sudo localectl --no-convert set-x11-keymap us,ru pc105 qwera grp:caps_togle,grp_led:scroll,compose:rwin
+

@@ -5,9 +5,10 @@ set $mod Mod4
 exec xset b off
 
 #Раскладка, ненавижу блять раскладку
-
 input * xkb_layout "us,ru"
 input * xkb_options "grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin"
+
+#input * xkb_options "grp:shift_caps_switch,grp_led:scroll,compose:rwin"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -94,6 +95,7 @@ workspace_auto_back_and_forth no
 
 bindsym $mod+t border toggle
 
+
 default_floating_border normal 3
 default_border pixel 3
 
@@ -159,14 +161,14 @@ bindsym $mod+r mode "resize"
 
 focus_follows_mouse no
 
-for_window [class = "SKAT"] floating enable border normal
+#for_window [class = "SKAT"] floating enable border normal
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
-        tray_output primary
 }
+
 
 set $Locker i3lock -c 000000 && sleep 1
 
@@ -186,31 +188,38 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 
-#Включение выключения тачпада (не везде есть на кнопках к сожалению)
-bindsym $mod+p exec synclient TouchpadOff=0
-bindsym $mod+Shift+p exec synclient TouchpadOff=1
-
-#хром запускается на 5 экране
-for_window [class="Chromium"] move container to workspace 5
-#телеграм запускается на 6 экране
-for_window [class="Telegram"] move container to workspace 6
-#thunderbird запускается на 7 экране
-for_window [class="Thunderbird"] move container to workspace 7
+#output EXAMPLE {
+#	scale
+#	subpixel rgb|bgr|vrgb|vbgr|none
+#	background red solid_color
+#	enable
+#	dpms on|off
 
 #расположение дисплеев работа
-exec xrandr --output DVI-I-1 --left-of HDMI-1
+output HDMI-A-1 {
+	scale 1
+	position 1920 0
+	mode 1920x1680@60Hz
+	#transform 90
+	}
 
-#где какой workspace TODO придумать как определять при накатке конфигов мониторы
-#workspace 1 output DVI-I-1
-#workspace 2 output DVI-I-1
-#workspace 3 output DVI-I-1
-#workspace 5 output HDMI-1
-#workspace 6 output HDMI-1
-#workspace 7 output HDMI-1
-workspace 5 output HDMI-1
-workspace 6 output HDMI-1
-workspace 7 output HDMI-1
+output DVI-I-1 {
+	scale 1
+	position 0 0
+	mode 19200x16800@60Hz
+	}
 
-exec --no-startup-id chromium
-exec --no-startup-id telegram-desktop
-exec --no-startup-id thunderbird
+#Включение выключения тачпада (не везде есть на кнопках к сожалению)
+#bindsym $mod+p exec synclient TouchpadOff=0
+#bindsym $mod+Shift+p exec synclient TouchpadOff=1
+
+#хром запускается на 5 экране
+#for_window [class="Chromium"] move container to workspace 5
+#телеграм запускается на 6 экране
+#for_window [class="Telegram"] move container to workspace 6
+#thunderbird запускается на 7 экране
+#for_window [class="Thunderbird"] move container to workspace 7
+
+#exec --no-startup-id chromium
+#exec --no-startup-id telegram-desktop
+#exec --no-startup-id thunderbird

@@ -18,3 +18,7 @@ xterm*metaSendsEscape: true
 
 xterm*translations: #override Ctrl Shift <KeyPress>C: copy-selection(CLIPBOARD)
 xterm*translations: #override Ctrl Shift <KeyPress>V: insert-selection(CLIPBOARD)
+
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+

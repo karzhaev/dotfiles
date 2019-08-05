@@ -59,13 +59,10 @@ set autoindent
 " Не переносить строки
 "set nowrap
 " Преобразование Таба в пробелы
-"set expandtab
 " Размер табуляции по умолчанию
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-
-set wrap
 "set textwidth=80
 
 "Формат строки состояния. Альтернативные варианты настройки `:h statusline`
@@ -92,13 +89,34 @@ set wildmenu
 set list
 set listchars=tab:→\ ,space:·
 " Включение сторонних плагинов
+filetype on
 filetype plugin on
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
 "Backspace
 set backspace=indent,eol,start
 
-augroup XML
+"сборка по <F9>
+noremap <silent> <F9> :w<cr> :make! all<cr>
+"пересборка по <Shift>+<F9>
+noremap <silent> <S-F9> :w<cr> :make! clean all<cr>
+
+augroup maxima
+	autocmd!
+	autocmd Bufread *.mac :syntax on!
+	autocmd Bufread *.mac :set syntax=maxima
+	autocmd Bufread *.mac :set makeprg=maxima\ -b\ %
+augroup END
+
+augroup python
+	autocmd!
+	autocmd FileType python :set expandtab!
+	autocmd FileType python :set wrap!
+	autocmd FileType python :set tabstop=4
+	autocmd FileType python :set makeprg=./%
+augroup END
+
+augroup xml
 	autocmd!
 	autocmd FileType xml let g:xml_syntax_folding=1
 	autocmd FileType xml setlocal foldmethod=syntax
@@ -111,7 +129,8 @@ augroup fcont-reg
 	autocmd BufRead */fcont-reg/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-reg/arm/o-le
 augroup END
 
-"сборка по <F9>
-noremap <silent> <F9> :w<cr> :make! all<cr>
-"пересборка по <Shift>+<F9>
-noremap <silent> <S-F9> :w<cr> :make! clean all<cr>
+augroup fcont-nav-c
+	autocmd!
+	autocmd BufRead */fcont-nav-c/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-nav-c/arm/o-le
+augroup END
+

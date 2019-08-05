@@ -4,6 +4,7 @@
 [alias]
 	supd = submodule update --init --recursive
 	supdf = submodule update --init --recursive --force
+	lall = log --graph --all
 [core]
 	editor = vim
 [push]

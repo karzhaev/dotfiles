@@ -1,4 +1,5 @@
 #!/bin/bash
-export WINEPREFIX=$HOME/win32
-export WINEARCH=win32
-wine $HOME/win32/drive_c/Program\ Files/ASCON/KOMPAS-3D\ V16/Bin/KOMPAS.Exe
+
+setxkbmap -option -option grp:shift_caps_switch,grp_led:scroll,compose:rwin
+
+wine $HOME/.wine/drive_c/Program\ Files/ASCON/KOMPAS-3D\ V16/Bin/KOMPAS.Exe
