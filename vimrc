@@ -101,6 +101,13 @@ noremap <silent> <F9> :w<cr> :make! all<cr>
 "пересборка по <Shift>+<F9>
 noremap <silent> <S-F9> :w<cr> :make! clean all<cr>
 
+augroup plantuml
+	autocmd!
+	autocmd Bufread *.puml :syntax on!
+	autocmd Bufread *.puml :set syntax=plantuml
+	autocmd Bufread *.puml :set makeprg=plantuml\ -tpng\ %
+augroup END
+
 augroup maxima
 	autocmd!
 	autocmd Bufread *.mac :syntax on!

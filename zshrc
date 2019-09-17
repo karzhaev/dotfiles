@@ -33,3 +33,7 @@ alias scrl='screen -ls'
 
 alias lock="i3lock -c 000000"
 alias :q="exit"
+
+#for HEAD^ work
+#unsetopt extendedglob
+setopt NO_NOMATCH
