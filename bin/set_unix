@@ -1,0 +1,8 @@
+#!/bin/bash
+
+FILES=$(ls)
+for file in $FILES
+do
+	vim -c "set ff=unix" -c "%s:[ 	]*$::g" -c "%s:><\/[^>]*>:\/>:g" -c ":wq" $file
+done
+
