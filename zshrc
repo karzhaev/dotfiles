@@ -26,6 +26,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/develop/skat
 alias bc='bc -ql'
 alias wget='wget -N'
 alias dot_all='dot -Tpng -O *.dot'
+alias ftml_all='for file in *.ftml; do ftml $file > "${file%.ftml}.txt"; done'
 
 #alias for screen
 alias scr='screen -R'

@@ -7,5 +7,6 @@
 	lall = log --graph --all
 [core]
 	editor = vim
+	abbrev = 8
 [push]
 	default = simple
