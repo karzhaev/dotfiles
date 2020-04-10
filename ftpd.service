@@ -1,0 +1,14 @@
+[Unit]
+Description=ftpd-unit
+After=network.target
+
+[Service]
+Type=idle
+PIDFile=/root/ftpd/service.pid
+WorkingDirectory=/root/ftpd
+ExecStart=/usr/bin/python3.8 ftpd.py
+Restart=always
+#TimeoutSec=10
+
+[Install]
+WantedBy=multi-user.target

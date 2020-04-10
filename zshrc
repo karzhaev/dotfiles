@@ -14,6 +14,9 @@ zstyle :compinstall filename '/home/karzhaev/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+autoload -Uz promptinit
+promptinit
+prompt adam2
 
 export PATH=$PATH:~/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/develop/skat

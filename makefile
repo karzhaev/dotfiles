@@ -15,10 +15,11 @@ FILE_CONFIG=~/.vimrc ~/.netrc /etc/hosts ~/.screenrc ~/.bashrc ~/.config/i3/conf
 #	@sudo apt-get install $(SOFTWARE_TEX)
 #
 link_config:
-	@ln -sr vimrc $(HOME)/.vimrc
-	@ln -sr screenrc $(HOME)/.screenrc
-	@ln -sr gitconfig $(HOME)/.gitconfig
-	@ln -sr Xresources $(HOME)/.Xresources
+	@ln -srf vimrc $(HOME)/.vimrc
+	@ln -srf screenrc $(HOME)/.screenrc
+	@ln -srf gitconfig $(HOME)/.gitconfig
+	@ln -srf Xresources $(HOME)/.Xresources
+	@ln -srf i3config $(HOME)/.config/i3/config
 
 install_config: #nautilius
 	@cp vimrc ~/.vimrc
