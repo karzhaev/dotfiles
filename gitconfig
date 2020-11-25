@@ -10,3 +10,7 @@
 	abbrev = 8
 [push]
 	default = simple
+[pull]
+	ff = only
+[diff]
+	submodule = log
