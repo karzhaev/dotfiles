@@ -5,6 +5,8 @@
 	supd = submodule update --init --recursive
 	supdf = submodule update --init --recursive --force
 	lall = log --graph --all
+	di = diff --ignore-all-space --ignore-blank-lines
+	diw = diff --ignore-all-space --ignore-blank-lines --word-diff
 [core]
 	editor = vim
 	abbrev = 8

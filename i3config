@@ -83,7 +83,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -202,11 +202,12 @@ bindsym $mod+Shift+p exec synclient TouchpadOff=1
 for_window [class="Chromium"] move container to workspace 5
 #телеграм запускается на 6 экране
 for_window [class="Telegram"] move container to workspace 6
-#thunderbird запускается на 7 экране
-for_window [class="Discord"] move container to workspace 7
+
+for_window [class="Discord"] move container to workspace 8
+for_window [class="Steam"] move container to workspace 9
 
 #расположение дисплеев работа
-exec xrandr --output DVI-I-1 --left-of HDMI-1
+#exec xrandr --output DVI-I-1 --left-of HDMI-1
 
 #где какой workspace TODO придумать как определять при накатке конфигов мониторы
 #workspace 1 output DVI-I-1
@@ -215,9 +216,9 @@ exec xrandr --output DVI-I-1 --left-of HDMI-1
 #workspace 5 output HDMI-1
 #workspace 6 output HDMI-1
 #workspace 7 output HDMI-1
-workspace 5 output HDMI-1
-workspace 6 output HDMI-1
-workspace 7 output HDMI-1
+#workspace 5 output HDMI-1
+#workspace 6 output HDMI-1
+#workspace 7 output HDMI-1
 
 exec --no-startup-id chromium
 exec --no-startup-id telegram-desktop
@@ -226,3 +227,12 @@ exec --no-startup-id discord
 bindsym $mod+Shift+i exec "setxkbmap -layout us -variant dvp && sleep 1"
 bindsym $mod+i exec "setxkbmap -layout us,ru -variant && sleep 1"
 
+bindsym $mod+Shift+g exec "setxkbmap -option && sleep 1"
+bindsym $mod+g exec "setxkbmap  -option -option 'grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin' && sleep 1"
+
+#volume control
+bindsym XF86AudioRaiseVolume exec "pamixer --allow-boost --increase 5"
+bindsym XF86AudioLowerVolume exec "pamixer --allow-boost --decrease 5"
+bindsym XF86AudioMute exec "pamixer --toggle-mute"
+
+bindsym $mod+w sticky toggle

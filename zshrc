@@ -35,6 +35,8 @@ alias ftml_all='for file in *.ftml; do ftml $file > "${file%.ftml}.txt"; done'
 alias scr='screen -R'
 alias scrl='screen -ls'
 
+alias cal='cal -m'
+
 alias lock="i3lock -c 000000"
 alias :q="exit"
 
