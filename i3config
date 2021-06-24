@@ -15,7 +15,7 @@ exec xset b off
 #старая версия раскладка на капсе. индикация рус на скроле
 #exec setxkbmap -layout us,ru -variant -option "grp:caps_toggle,grp_led:scroll"
 #немного чернушной магии, раскладка на левом контроле, контрол на капсе
-exec setxkbmap -layout "us,ru" -option -option "grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin"
+exec setxkbmap -layout "us,ru" -option -option "grp:lctrl_rctrl_switch,ctrl:nocaps,grp_led:scroll,compose:rwin"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -228,11 +228,18 @@ bindsym $mod+Shift+i exec "setxkbmap -layout us -variant dvp && sleep 1"
 bindsym $mod+i exec "setxkbmap -layout us,ru -variant && sleep 1"
 
 bindsym $mod+Shift+g exec "setxkbmap -option && sleep 1"
-bindsym $mod+g exec "setxkbmap  -option -option 'grp:lctrl_rctrl_switch,caps:ctrl_modifier,grp_led:scroll,compose:rwin' && sleep 1"
+bindsym $mod+g exec "setxkbmap  -option -option 'grp:lctrl_rctrl_switch,ctrl:nocaps,grp_led:scroll,compose:rwin' && sleep 1"
 
 #volume control
 bindsym XF86AudioRaiseVolume exec "pamixer --allow-boost --increase 5"
 bindsym XF86AudioLowerVolume exec "pamixer --allow-boost --decrease 5"
 bindsym XF86AudioMute exec "pamixer --toggle-mute"
+
+#bindsym XF86Tools exec "pactl set-source-mute 2 toggle"
+#or
+bindsym XF86Tools exec "pacmd list-sources | \
+        grep -oP 'index: \d+' | \
+        awk '{ print $2 }' | \
+        xargs -I{} pactl set-source-mute {} toggle"
 
 bindsym $mod+w sticky toggle
