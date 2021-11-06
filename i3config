@@ -116,6 +116,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 0
+bindsym $mod+g workspace G
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -128,6 +129,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 0
+bindsym $mod+Shift+g move container to workspace G
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -223,12 +225,13 @@ for_window [class="Steam"] move container to workspace 9
 exec --no-startup-id chromium
 exec --no-startup-id telegram-desktop
 exec --no-startup-id discord
+exec --no-startup-id screen -dmS steam steam
 
 bindsym $mod+Shift+i exec "setxkbmap -layout us -variant dvp && sleep 1"
 bindsym $mod+i exec "setxkbmap -layout us,ru -variant && sleep 1"
 
-bindsym $mod+Shift+g exec "setxkbmap -option && sleep 1"
-bindsym $mod+g exec "setxkbmap  -option -option 'grp:lctrl_rctrl_switch,ctrl:nocaps,grp_led:scroll,compose:rwin' && sleep 1"
+bindsym $mod+Shift+x exec "setxkbmap -option && sleep 1"
+bindsym $mod+x exec "setxkbmap  -option -option 'grp:lctrl_rctrl_switch,ctrl:nocaps,grp_led:scroll,compose:rwin' && sleep 1"
 
 #volume control
 bindsym XF86AudioRaiseVolume exec "pamixer --allow-boost --increase 5"

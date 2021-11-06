@@ -93,6 +93,9 @@ filetype on
 filetype plugin on
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
+
+command! Fixendline :set ff=unix | %s:[ 	]\{1,\}$::g
+
 "Backspace
 set backspace=indent,eol,start
 
@@ -129,6 +132,7 @@ augroup xml
 	autocmd FileType xml setlocal foldmethod=syntax
 	autocmd FileType xml :syntax on
 	autocmd FileType xml :%foldopen!
+	autocmd FileType xml :command! Closevariable %s:\(<variable [^>]*\)></variable>:\1/>:g
 augroup END
 
 augroup fcont-reg
@@ -141,3 +145,5 @@ augroup fcont-nav-c
 	autocmd BufRead */fcont-nav-c/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-nav-c/arm/o-le
 augroup END
 
+set spell
+set spelllang=ru,en
