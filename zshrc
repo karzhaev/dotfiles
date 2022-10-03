@@ -21,6 +21,8 @@ prompt adam2
 export PATH=$PATH:~/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/develop/skat
 
+XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
+
 # some more ls aliases
 #alias ll='ls -alF'
 #alias la='ls -A'
@@ -42,6 +44,14 @@ alias :q="exit"
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+my-backward-delete-word () {
+	local WORDCHARS=${WORDCHARS/\//}
+	zle backward-delete-word
+}
+
+zle -N my-backward-delete-word
+bindkey '^W' my-backward-delete-word
 
 #for HEAD^ work
 #unsetopt extendedglob

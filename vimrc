@@ -1,4 +1,4 @@
-colorscheme industry
+colorscheme myindustry
 "Поддержка русского языка
 set keymap=russian-jcukenwin
 set iminsert=0
@@ -42,6 +42,7 @@ set ruler
 " Поддержка мыши
 set mouse=a
 set mousemodel=popup
+set ttymouse=sgr
 
 " Не выгружать буфер, когда переключаемся на другой
 " Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
@@ -135,6 +136,11 @@ augroup xml
 	autocmd FileType xml :command! Closevariable %s:\(<variable [^>]*\)></variable>:\1/>:g
 augroup END
 
+augroup fnav
+	autocmd!
+	autocmd BufRead */fnav/* set makeprg=make\ -C\ ~/develop/fsoft/fnav/arm/o-le
+augroup END
+
 augroup fcont-reg
 	autocmd!
 	autocmd BufRead */fcont-reg/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-reg/arm/o-le
@@ -147,3 +153,8 @@ augroup END
 
 set spell
 set spelllang=ru,en
+
+"Only for wayland
+xnoremap "+y y:call system("wl-copy", @")<cr>
+nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p

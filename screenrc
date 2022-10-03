@@ -1,4 +1,4 @@
-escape ``
+#escape ``
 termcapinfo xterm* ti@:te@
 scrollback 10000
 startup_message off
