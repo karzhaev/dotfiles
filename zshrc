@@ -56,3 +56,12 @@ bindkey '^W' my-backward-delete-word
 #for HEAD^ work
 #unsetopt extendedglob
 setopt NO_NOMATCH
+
+alias cformat="clang-format --dry-run"
+
+alias beep='play -qn synth 5 pluck A5 vol -20dB 2> /dev/null'
+
+alias alert='notify-send "$(pwd):$?" "success" || notify-send "$(pwd):$?" "failure" && beep'
+
+export PDFLATEX_ERROR_OPTS="-interation nonstopmode"
+

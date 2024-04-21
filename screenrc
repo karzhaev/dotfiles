@@ -4,7 +4,7 @@ scrollback 10000
 startup_message off
 #К сожалению блокирует скролинг окна(
 #caption always
-caption string "%{kw}%-w%{wr}%n %t%+w"
+#caption string "%{kw}%-w%{wr}%n %t%+w"
 #screen -t 'fsoft' 5 cd ~/fsoft
 #screen -dt 'ftpd'  9 sudo ./fsoft/ftpd.py
 #screen

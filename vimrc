@@ -9,9 +9,6 @@ highlight lCursor guifg=NONE guibg=Cyan
 imap <F2> 
 nnoremap Q @@
 
-
-"setlocal spell spelllang=ru_ru,en_us
-
 "конец файла в unix формате
 set ff=unix
 
@@ -134,21 +131,28 @@ augroup xml
 	autocmd FileType xml :syntax on
 	autocmd FileType xml :%foldopen!
 	autocmd FileType xml :command! Closevariable %s:\(<variable [^>]*\)></variable>:\1/>:g
+	autocmd FileType xml highlight ColorColumn ctermbg=235 guibg=#2c2d27
+	autocmd FileType xml set colorcolumn=81
+
+
 augroup END
 
 augroup fnav
 	autocmd!
 	autocmd BufRead */fnav/* set makeprg=make\ -C\ ~/develop/fsoft/fnav/arm/o-le
+	autocmd BufRead */fnav/* set expandtab
 augroup END
 
 augroup fcont-reg
 	autocmd!
 	autocmd BufRead */fcont-reg/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-reg/arm/o-le
+	autocmd BufRead */fcont-reg/* set expandtab
 augroup END
 
 augroup fcont-nav-c
 	autocmd!
 	autocmd BufRead */fcont-nav-c/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-nav-c/arm/o-le
+	autocmd BufRead */fcont-nav-c/* set expandtab
 augroup END
 
 set spell
@@ -156,6 +160,7 @@ set spelllang=ru,en
 
 "Only for wayland
 xnoremap "+y y:call system("wl-copy", @")<cr>
+xnoremap "*y y:call system("wl-copy --primary", @")<cr>
 nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
 nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 

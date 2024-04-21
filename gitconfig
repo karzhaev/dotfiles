@@ -8,7 +8,10 @@
 	di = diff --ignore-all-space --ignore-blank-lines
 	diw = diff --ignore-all-space --ignore-blank-lines --word-diff
 	clead = clean -dff
-	supc = submodule foreach --recursive git clead
+	sclean = submodule foreach --recursive git clean -dff
+	sreset = submodule foreach --recursive "git clean -dff" 
+	scheckout = submodule foreach --recursive "git checkout -- ."
+	vdi = difftool --tool=vimdiff --no-prompt
 [core]
 	editor = vim
 	abbrev = 8
@@ -19,3 +22,5 @@
 	ff = only
 [diff]
 	submodule = log
+[log]
+	date = iso
