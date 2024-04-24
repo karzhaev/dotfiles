@@ -4,6 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+exec mako
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -18,32 +20,43 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/karzhaev/bg/disco_elysium.png fill
 #
 # Example configuration:
 #
-set $MAINDISPLAY DP-3
-set $RIGHTDISPLAY HDMI-A-1
+set $MAINDISPLAY DP-1
+set $SECONDDISPLAY DP-2
+set $MEDIADISPLAY HDMI-A-1
 
-output $MAINDISPLAY resolution 1920x1080@60Hz position 0,0 adaptive_sync on
-output $RIGHTDISPLAY resolution 1920x1080@60Hz position 1920,0
+#output $MAINDISPLAY resolution 1920x1080@60Hz position 0,0 adaptive_sync on
+output $MAINDISPLAY resolution 1920x1080@120Hz position 0,0 adaptive_sync on
+# помогает перестать держать 1000MHz всегда, смотреть в
+# cat /sys/kernel/debug/dri/1/amdgpu_pm_info
+# получено командной cvt -r 1920 1080 120 после Vbackporch поднят на 1
+output $MAINDISPLAY position 0,0 modeline 285.25 1920 1968 2000 2080 1080 1083 1088 1145 +hsync -vsync
+
+output $SECONDDISPLAY resolution 1920x1080@60Hz position 1920,0
+output $MEDIADISPLAY resolution 1920x1080@60Hz position -1920,-1080
+
+#bindsym --to-code $mod+n output $SECONDDISPLAY resolution 1920x1080@60Hz position 1920,0
+#bindsym --to-code $mod+Shift+n output $SECONDDISPLAY resolution 3840x2160@60Hz
 
 workspace 1 output $MAINDISPLAY
 workspace 2 output $MAINDISPLAY
 workspace 3 output $MAINDISPLAY
-workspace 5 output $RIGHTDISPLAY
-workspace 6 output $RIGHTDISPLAY
-workspace 7 output $RIGHTDISPLAY
-workspace 5 output $RIGHTDISPLAY
-workspace 6 output $RIGHTDISPLAY
-workspace 7 output $RIGHTDISPLAY
-workspace 8 output $RIGHTDISPLAY
-workspace 9 output $RIGHTDISPLAY
+workspace 5 output $SECONDDISPLAY
+workspace 6 output $SECONDDISPLAY
+workspace 7 output $SECONDDISPLAY
+workspace 8 output $SECONDDISPLAY
+workspace 9 output $SECONDDISPLAY
+
+workspace G output $MAINDISPLAY
+workspace M output $MEDIADISPLAY
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -85,7 +98,7 @@ workspace 9 output $RIGHTDISPLAY
     bindsym --to-code $mod+Shift+q kill
 
     # Start your launcher
-    bindsym --to-code $mod+d exec $menu
+    bindsym --to-code $mod+d exec wofi --show run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -138,6 +151,7 @@ workspace 9 output $RIGHTDISPLAY
     bindsym --to-code $mod+9 workspace number 9
     bindsym --to-code $mod+0 workspace number 0
     bindsym --to-code $mod+g workspace G
+    bindsym --to-code $mod+m workspace M
     # Move focused container to workspace
     bindsym --to-code $mod+Shift+1 move container to workspace number 1; workspace number 1
     bindsym --to-code $mod+Shift+2 move container to workspace number 2; workspace number 2
@@ -149,7 +163,8 @@ workspace 9 output $RIGHTDISPLAY
     bindsym --to-code $mod+Shift+8 move container to workspace number 8; workspace number 8
     bindsym --to-code $mod+Shift+9 move container to workspace number 9; workspace number 9
     bindsym --to-code $mod+Shift+0 move container to workspace number 0; workspace number 0
-    bindsym --to-code $mod+Shift+g move container to workspace g; workspace g
+    bindsym --to-code $mod+Shift+g move container to workspace G; workspace G
+    bindsym --to-code $mod+Shift+m move container to workspace M; workspace M
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -225,7 +240,8 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+    #status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     colors {
         statusline #ffffff
@@ -243,32 +259,35 @@ input * {
 for_window [class="Chromium"] move container to workspace 5
 for_window [app_id="chromium"] move container to workspace 5
 #телеграм запускается на 6 экране
-for_window [app_id="telegramdesktop"] move container to workspace 6
+for_window [app_id="org.telegram.desktop"] move container to workspace 6
 
 for_window [class="discord"] move container to workspace 7
-for_window [class="Steam"] move container to workspace 9
+for_window [class="steam"] move container to workspace 9
 for_window [app_id="com\/.https:\/\/uav-siberia.skat-executable"] floating enable
 
-set $game_cmd border none move container to workspace G
+#set $game_cmd border none move container to workspace G
+set $game_cmd move container to workspace G
 
-for_window [class="dota2"] $game_cmd
-for_window [title="Path of Exile"] $game_cmd
+#steam games
+for_window [class="steam_app_.*"] $game_cmd
+for_window [class="factorio"] $game_cmd
 
 exec --no-startup-id chromium
-exec --no-startup-id QT_QPA_PLATFORM="wayland;xcb" telegram-desktop
+#exec --no-startup-id QT_QPA_PLATFORM="wayland;xcb" telegram-desktop
+exec --no-startup-id screen -dmS telegram telegram-desktop
 exec --no-startup-id discord
 exec --no-startup-id screen -dmS steam steam
 #
 
+#screenshots
 bindsym --to-code Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
+bindsym --to-code shift+Print exec --no-startup-id grim - | wl-copy
 
 #volume control
 bindsym --to-code XF86AudioRaiseVolume exec "pamixer --allow-boost --increase 3"
 bindsym --to-code XF86AudioLowerVolume exec "pamixer --allow-boost --decrease 3"
 bindsym --to-code XF86AudioMute exec "pamixer --toggle-mute"
 
-#bindsym --to-code XF86Tools exec "pactl set-source-mute 2 toggle"
-#or
 bindsym --to-code XF86Tools exec "pacmd list-sources | \
         grep -oP 'index: \d+' | \
         awk '{ print $2 }' | \
