@@ -21,8 +21,6 @@ prompt adam2
 export PATH=$PATH:~/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/develop/skat
 
-XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
-
 # some more ls aliases
 #alias ll='ls -alF'
 #alias la='ls -A'
@@ -33,14 +31,13 @@ alias wget='wget -N'
 alias dot_all='dot -Tpng -O *.dot'
 alias ftml_all='for file in *.ftml; do ftml $file > "${file%.ftml}.txt"; done'
 
-#alias for screen
-alias scr='screen -R'
-alias scrl='screen -ls'
-
 alias cal='cal -m'
 
-alias lock="i3lock -c 000000"
-alias :q="exit"
+alias lock="swalock -c 000000"
+
+# rlwrap for arrow work
+alias sbcl='rlwrap sbcl'
+alias maxima='rlwrap maxima'
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word

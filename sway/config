@@ -92,13 +92,13 @@ workspace M output $MEDIADISPLAY
 # Basics:
 #
     # Start a terminal
-    bindsym --to-code $mod+Return exec $term
+    bindsym --to-code $mod+Return exec $env $term
 
     # Kill focused window
     bindsym --to-code $mod+Shift+q kill
 
     # Start your launcher
-    bindsym --to-code $mod+d exec wofi --show run
+    bindsym --to-code $mod+d exec $env wofi --show run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -272,12 +272,18 @@ set $game_cmd move container to workspace G
 for_window [class="steam_app_.*"] $game_cmd
 for_window [class="factorio"] $game_cmd
 
-exec --no-startup-id chromium
+#XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=sway
+set $env env XDG_CURRENT_DESKTOP=sway
+
+exec --no-startup-id screen -dmS portal $env /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr
+exec --no-startup-id screen -dmS chromium $env chromium --enable-features=UseOzonePlatform --enable-gpu --ozone-platform=wayland
+#exec --no-startup-id chromium
 #exec --no-startup-id QT_QPA_PLATFORM="wayland;xcb" telegram-desktop
-exec --no-startup-id screen -dmS telegram telegram-desktop
-exec --no-startup-id discord
+exec --no-startup-id screen -dmS telegram $env telegram-desktop
+exec --no-startup-id screen -dmS discord $env discord
 exec --no-startup-id screen -dmS steam steam
-#
+
+exec --no-startup-id screen -dmS ap /dev/ttyUSB1 115200
 
 #screenshots
 bindsym --to-code Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
