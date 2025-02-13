@@ -133,8 +133,6 @@ augroup xml
 	autocmd FileType xml :command! Closevariable %s:\(<variable [^>]*\)></variable>:\1/>:g
 	autocmd FileType xml highlight ColorColumn ctermbg=235 guibg=#2c2d27
 	autocmd FileType xml set colorcolumn=81
-
-
 augroup END
 
 augroup fnav
@@ -153,10 +151,28 @@ augroup fcont-nav-c
 	autocmd!
 	autocmd BufRead */fcont-nav-c/* set makeprg=make\ -C\ ~/develop/fsoft/fcont-nav-c/arm/o-le
 	autocmd BufRead */fcont-nav-c/* set expandtab
+	autocmd BufRead */fcont-nav-c/* highlight ColorColumn ctermbg=235 guibg=#2c2d27
+	autocmd BufRead */fcont-nav-c/* set colorcolumn=81,101
+augroup END
+
+augroup lisp
+	autocmd!
+	autocmd BufRead *.lisp set expandtab
+	autocmd BufRead *.lisp set tabstop=2
+	autocmd BufRead *.lisp set softtabstop=2
+	autocmd BufRead *.lisp set shiftwidth=2
+augroup END
+
+augroup latex
+	autocmd!
+	autocmd Bufread *.tex :set makeprg=pdflatex\ -shell-escape\ %
 augroup END
 
 set spell
 set spelllang=ru,en
+
+map <C-K> :py3f /usr/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/share/clang/clang-format.py<cr>
 
 "Only for wayland
 xnoremap "+y y:call system("wl-copy", @")<cr>

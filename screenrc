@@ -1,5 +1,6 @@
 #escape ``
 termcapinfo xterm* ti@:te@
+termcapinfo alacritty* ti@:te@
 scrollback 10000
 startup_message off
 #К сожалению блокирует скролинг окна(
