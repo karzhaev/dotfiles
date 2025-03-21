@@ -1,0 +1,9 @@
+#!/bin/sh
+
+MATLAB_PATH=/opt/matlab/r2023a
+
+export TMPDIR=/home/karzhaev/temp
+export _JAVA_AWT_WM_NONREPARENTING=1
+export LD_LIBRARY_PATH=${MATLAB_PATH}/lib:/usr/lib
+
+exec ${MATLAB_PATH}/bin/matlab

@@ -8,7 +8,9 @@ gpu_tempr_junction=$(cat /sys/class/drm/card1/device/hwmon/hwmon*/temp2_input | 
 
 gpu=$(echo "$gpu_dpm_socclk ${gpu_busy_percent}% ${gpu_power_average}W ${gpu_tempr_edge}/${gpu_tempr_junction}°")
 
-timetrace_status=$(echo "$(timetrace status -o json | jq -r '.project') $(timetrace status -o json | jq -r '.trackedTimeToday')")
+mem=$(free -h | sed -ne '/Mem/p' | awk '{ print $4 "/" $7 "/" $2}')
+
+#timetrace_status=$(echo "$(timetrace status -o json | jq -r '.project') $(timetrace status -o json | jq -r '.trackedTimeToday')")
 
 ping_global=
 network_global=$(ip route get 8.8.8.8 | grep -Po '(?<=dev\s)\w+')
@@ -20,4 +22,4 @@ network=$(ip link show | sed -ne 's/.*\(enp[^ ]\+\): .* state \([^ ]\+\) .*/\1-\
 
 date=$(date +'%Y-%m-%d %H:%M:%S')
 
-echo "$media: $(echo $timetrace_status) : $gpu : $(echo $network) : $(echo $ping_global) : $date"
+echo "$media: $gpu : $mem : $(echo $network) : $(echo $ping_global) : $date"
